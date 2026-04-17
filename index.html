@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АктивЭнергоПром — Промышленные поставки для нефтегаза</title>
+<meta name="description" content="АктивЭнергоПром — надёжный поставщик промышленного оборудования для нефтегазовой отрасли. Запорная арматура, метизы, кабельные эстакады, фасонина, тенты.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--font-heading:'Unbounded',sans-serif;
+--font-body:'Inter',sans-serif;
+--accent:hsl(0,72%,51%);
+--accent-hover:hsl(0,72%,42%);
+--radius:12px;
+--radius-sm:8px;
+--transition:0.3s ease;
+--nav-h:72px;
+}
+[data-theme="dark"]{
+--bg:hsl(0,0%,5%);
+--bg-card:hsl(0,0%,8%);
+--bg-card-hover:hsl(0,0%,11%);
+--text:hsl(0,0%,95%);
+--text-muted:hsl(0,0%,55%);
+--border:hsl(0,0%,15%);
+--nav-bg:hsla(0,0%,5%,0.85);
+}
+[data-theme="light"]{
+--bg:hsl(0,0%,98%);
+--bg-card:hsl(0,0%,93%);
+--bg-card-hover:hsl(0,0%,88%);
+--text:hsl(0,0%,10%);
+--text-muted:hsl(0,0%,45%);
+--border:hsl(0,0%,82%);
+--nav-bg:hsla(0,0%,98%,0.85);
+}
+html{scroll-behavior:auto}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background var(--transition),color var(--transition)}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,textarea,select{font-family:var(--font-body);font-size:1rem;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.85rem 1rem;width:100%;outline:none;transition:border var(--transition)}
+input:focus,textarea:focus,select:focus{border-color:var(--accent)}
+textarea{resize:vertical;min-height:120px}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.section{padding:6rem 0}
+.eyebrow{font-family:var(--font-heading);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--accent);margin-bottom:0.75rem}
+.section-title{font-family:var(--font-heading);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;line-height:1.2;margin-bottom:1rem}
+.section-sub{color:var(--text-muted);font-size:1.05rem;max-width:560px;margin-bottom:2.5rem}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-heading);font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;padding:0.9rem 1.8rem;border-radius:var(--radius-sm);transition:all var(--transition)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.btn-outline{border:1px solid var(--border);color:var(--text)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.fade{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;width:100%;height:var(--nav-h);z-index:1000;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:background var(--transition)}
+.navbar .container{display:flex;align-items:center;height:100%;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:0.65rem}
+.nav-logo img{height:40px;width:40px;object-fit:contain;border-radius:6px}
+.nav-logo span{font-family:var(--font-heading);font-size:0.95rem;font-weight:700;white-space:nowrap}
+.nav-logo .red{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:0.9rem;font-weight:400;position:relative;transition:color var(--transition)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:width var(--transition)}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover::after{width:100%}
+.nav-call{display:inline-flex;align-items:center;gap:0.4rem;background:var(--accent);color:#fff;padding:0.55rem 1.2rem;border-radius:var(--radius-sm);font-size:0.85rem;font-weight:500;transition:background var(--transition)}
+.nav-call:hover{background:var(--accent-hover)}
+.nav-call svg{width:16px;height:16px}
+.theme-toggle{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--border);transition:all var(--transition);flex-shrink:0}
+.theme-toggle:hover{border-color:var(--accent)}
+.theme-toggle svg{width:20px;height:20px}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.burger{display:none;flex-direction:column;gap:5px;width:28px;cursor:pointer}
+.burger span{display:block;width:100%;height:2px;background:var(--text);transition:all var(--transition);border-radius:2px}
+.burger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.burger.active span:nth-child(2){opacity:0}
+.burger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;width:100%;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1.5rem;flex-direction:column;gap:1rem;transform:translateY(-10px);opacity:0;transition:all var(--transition);pointer-events:none}
+.mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:all}
+.mobile-menu a{font-size:1.1rem;padding:0.5rem 0;display:block}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:var(--nav-h)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.35) 50%,rgba(0,0,0,0.55) 100%)}
+.hero .container{position:relative;z-index:1;padding-top:3rem;padding-bottom:3rem}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:hsla(0,0%,100%,0.08);border:1px solid hsla(0,0%,100%,0.12);border-radius:999px;padding:0.45rem 1.2rem;font-size:0.8rem;color:hsla(0,0%,100%,0.85);margin-bottom:1.5rem;backdrop-filter:blur(4px)}
+.pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);position:relative}
+.pulse-dot::after{content:'';position:absolute;inset:-4px;border-radius:50%;background:var(--accent);opacity:0.4;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:0.4}50%{transform:scale(1.8);opacity:0}}
+.hero h1{font-family:var(--font-heading);font-size:clamp(2rem,5.5vw,3.8rem);font-weight:800;line-height:1.15;color:#fff;max-width:700px;margin-bottom:1.25rem}
+.hero h1 .red{color:var(--accent)}
+.hero-sub{font-size:1.1rem;color:hsla(0,0%,100%,0.7);max-width:520px;margin-bottom:2rem;font-weight:300;line-height:1.7}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap}
+.hero-stat{display:flex;align-items:center;gap:0.75rem;color:hsla(0,0%,100%,0.85)}
+.hero-stat-icon{width:44px;height:44px;border-radius:var(--radius-sm);background:hsla(0,0%,100%,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hero-stat-icon svg{width:22px;height:22px;stroke:var(--accent)}
+.hero-stat-text strong{display:block;font-family:var(--font-heading);font-size:0.95rem;font-weight:700}
+.hero-stat-text span{font-size:0.78rem;color:hsla(0,0%,100%,0.5)}
+.scroll-arrow{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:1;animation:bounce 2s ease infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+.scroll-arrow svg{width:28px;height:28px;stroke:hsla(0,0%,100%,0.4)}
+
+/* PRODUCTS */
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.product-card{background:var(--bg-card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);transition:all var(--transition);position:relative}
+.product-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--accent);transform:scaleX(0);transition:transform var(--transition)}
+.product-card:hover::after{transform:scaleX(1)}
+.product-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.product-img{height:200px;overflow:hidden}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease}
+.product-card:hover .product-img img{transform:scale(1.08)}
+.product-body{padding:1.25rem}
+.product-body h3{font-family:var(--font-heading);font-size:1rem;font-weight:700;margin-bottom:0.5rem}
+.product-body p{font-size:0.88rem;color:var(--text-muted);line-height:1.6;margin-bottom:1rem}
+.product-arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all var(--transition)}
+.product-arrow svg{width:18px;height:18px;stroke:var(--text-muted);transition:stroke var(--transition)}
+.product-card:hover .product-arrow{background:var(--accent);border-color:var(--accent)}
+.product-card:hover .product-arrow svg{stroke:#fff}
+
+/* DELIVERY PARALLAX */
+.delivery{position:relative;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.delivery-bg{position:absolute;inset:-20px;z-index:0;will-change:transform}
+.delivery-bg img{width:100%;height:calc(100% + 40px);object-fit:cover;transform:scale(1.1)}
+.delivery::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.65);z-index:1}
+.delivery::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:4px;background:var(--accent);z-index:2}
+.delivery-content{position:relative;z-index:2;text-align:center;color:#fff}
+.delivery-content .eyebrow{color:var(--accent)}
+.delivery-content h2{font-family:var(--font-heading);font-size:clamp(1.5rem,4vw,2.5rem);font-weight:800}
+.delivery-content h2 .red{color:var(--accent)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.about-img-wrap{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3}
+.about-img-wrap img{width:100%;height:100%;object-fit:cover}
+.about-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,hsla(0,72%,51%,0.25),transparent 60%)}
+.about-badge{position:absolute;bottom:1.25rem;left:1.25rem;background:hsla(0,0%,0%,0.6);backdrop-filter:blur(8px);border:1px solid hsla(0,0%,100%,0.12);border-radius:var(--radius-sm);padding:0.65rem 1rem;color:#fff;font-family:var(--font-heading);font-size:0.85rem;font-weight:700}
+.about-text .section-sub{margin-bottom:1.5rem}
+.about-text p{color:var(--text-muted);font-size:0.95rem;margin-bottom:1rem;line-height:1.7}
+.advantages{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin:1.5rem 0}
+.adv-item{display:flex;align-items:center;gap:0.6rem;background:var(--bg-card);padding:0.7rem 1rem;border-radius:var(--radius-sm);font-size:0.88rem;font-weight:400}
+.adv-check{width:22px;height:22px;border-radius:50%;background:hsla(0,72%,51%,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.adv-check svg{width:14px;height:14px;stroke:var(--accent)}
+.partners{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
+.partner-tag{padding:0.4rem 0.9rem;border-radius:999px;font-size:0.78rem;font-weight:500;background:var(--bg-card);border:1px solid var(--border);transition:all var(--transition)}
+.partner-tag.highlight{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* CONTACTS */
+.contacts{background:var(--bg-card);transition:background var(--transition)}
+.contacts-header{text-align:center;margin-bottom:3rem}
+.contacts-header .section-sub{margin-left:auto;margin-right:auto}
+.contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-items{display:flex;flex-direction:column;gap:1.25rem}
+.contact-item{display:flex;align-items:flex-start;gap:1rem}
+.contact-icon{width:48px;height:48px;border-radius:var(--radius-sm);background:hsla(0,72%,51%,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-icon svg{width:22px;height:22px;stroke:var(--accent)}
+.contact-item strong{display:block;font-size:0.95rem;margin-bottom:0.15rem}
+.contact-item span{font-size:0.88rem;color:var(--text-muted)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:0.82rem;font-weight:500;margin-bottom:0.4rem;color:var(--text-muted)}
+.submit-btn{width:100%;padding:1rem;font-family:var(--font-heading);font-weight:700;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.08em;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);cursor:pointer;transition:all var(--transition)}
+.submit-btn:hover{background:var(--accent-hover)}
+.submit-btn.success{background:hsl(142,72%,40%)}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--border);padding:4rem 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:3rem}
+.footer-brand p{font-size:0.88rem;color:var(--text-muted);margin:1rem 0;line-height:1.7}
+.footer-socials{display:flex;gap:0.75rem}
+.footer-social{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all var(--transition)}
+.footer-social:hover{border-color:var(--accent);background:hsla(0,72%,51%,0.1)}
+.footer-social svg{width:18px;height:18px;stroke:var(--text-muted)}
+.footer-col h4{font-family:var(--font-heading);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem}
+.footer-col a{display:block;font-size:0.88rem;color:var(--text-muted);padding:0.3rem 0;transition:color var(--transition)}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--border);padding:1.5rem 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem}
+.footer-bottom span{font-size:0.8rem;color:var(--text-muted)}
+
+/* VALVE BUTTON */
+.valve-wrap{position:fixed;bottom:5rem;right:1.5rem;z-index:999;display:flex;flex-direction:column;align-items:center;gap:0.35rem;opacity:0;pointer-events:none;transition:opacity 0.4s ease}
+.valve-wrap.visible{opacity:1;pointer-events:all}
+.valve-btn{width:56px;height:56px;border-radius:50%;background:var(--bg-card);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--transition);box-shadow:0 4px 20px hsla(0,72%,51%,0.2)}
+.valve-btn:hover{background:var(--accent)}
+.valve-btn:hover svg{stroke:#fff}
+.valve-btn svg{width:30px;height:30px;stroke:var(--accent);transition:stroke var(--transition)}
+.valve-label{font-size:0.55rem;font-weight:500;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-muted)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+.products-grid{grid-template-columns:repeat(2,1fr)}
+.about-grid{grid-template-columns:1fr}
+.contacts-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+.nav-links,.nav-call{display:none}
+.burger{display:flex}
+.mobile-menu{display:flex}
+.products-grid{grid-template-columns:1fr}
+.hero h1{font-size:clamp(1.8rem,7vw,2.8rem)}
+.hero-stats{gap:1.5rem}
+.form-row{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.advantages{grid-template-columns:1fr}
+.section{padding:4rem 0}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+<div class="container">
+<a href="#hero" class="nav-logo">
+<img src="https://media.base44.com/images/public/user_69c57e1eac7282013701a008/6cb67869e_ChatGPTImage25202611_29_20.png" alt="АктивЭнергоПром" width="40" height="40">
+<span>АктивЭнерго<span class="red">Пром</span></span>
+</a>
+<div class="nav-links">
+<a href="#hero">Главная</a>
+<a href="#products">Продукция</a>
+<a href="#about">О компании</a>
+<a href="#contacts">Контакты</a>
+</div>
+<div class="nav-right">
+<a href="tel:+73420000000" class="nav-call">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+Позвонить
+</a>
+<button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+<svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+<svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button>
+<div class="burger" id="burger">
+<span></span><span></span><span></span>
+</div>
+</div>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="#hero" class="mobile-link">Главная</a>
+<a href="#products" class="mobile-link">Продукция</a>
+<a href="#about" class="mobile-link">О компании</a>
+<a href="#contacts" class="mobile-link">Контакты</a>
+<a href="tel:+73420000000" class="mobile-link" style="color:var(--accent)">+7 (342) 000-00-00</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+<div class="hero-bg">
+<img src="hero-bg.png" alt="Нефтеперерабатывающий завод" width="1400" height="800">
+</div>
+<div class="container">
+<div class="hero-badge fade">
+<span class="pulse-dot"></span>
+Более 10 лет на рынке
+</div>
+<h1 class="fade">Промышленные<br><span class="red">поставки</span><br>для нефтегаза</h1>
+<p class="hero-sub fade">Запорная арматура, метизы, кабельные эстакады, фасонные изделия и тенты. Полный цикл снабжения для промышленных объектов.</p>
+<div class="hero-buttons fade">
+<a href="#products" class="btn btn-primary">Каталог продукции</a>
+<a href="#contacts" class="btn btn-outline" style="border-color:hsla(0,0%,100%,0.25);color:#fff">Связаться с нами</a>
+</div>
+<div class="hero-stats fade">
+<div class="hero-stat">
+<div class="hero-stat-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+</div>
+<div class="hero-stat-text">
+<strong>10+ лет</strong>
+<span>Опыта на рынке</span>
+</div>
+</div>
+<div class="hero-stat">
+<div class="hero-stat-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+</div>
+<div class="hero-stat-text">
+<strong>ГСП партнёр</strong>
+<span>Газстройпром</span>
+</div>
+</div>
+<div class="hero-stat">
+<div class="hero-stat-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+</div>
+<div class="hero-stat-text">
+<strong>500+ поставок</strong>
+<span>По всей России</span>
+</div>
+</div>
+</div>
+</div>
+<div class="scroll-arrow">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/></svg>
+</div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+<div class="container">
+<div class="fade">
+<p class="eyebrow">Каталог</p>
+<h2 class="section-title">Наша продукция</h2>
+<p class="section-sub">Комплексные поставки для строительства и обслуживания промышленных объектов нефтегазовой отрасли.</p>
+</div>
+<div class="products-grid" id="productsGrid"></div>
+</div>
+</section>
+
+<!-- DELIVERY PARALLAX -->
+<section class="delivery" id="delivery">
+<div class="delivery-bg" id="deliveryBg">
+<img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1400&q=80" alt="Доставка по России" width="1400" height="500">
+</div>
+<div class="delivery-content fade">
+<p class="eyebrow">Логистика</p>
+<h2>Доставляем по всей <span class="red">России</span></h2>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+<div class="container">
+<div class="about-grid">
+<div class="about-img-wrap fade">
+<img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="О компании АктивЭнергоПром" width="800" height="600">
+<div class="about-badge">500+ поставок</div>
+</div>
+<div class="about-text fade">
+<p class="eyebrow">О компании</p>
+<h2 class="section-title">Надёжный партнёр в сфере промышленных поставок</h2>
+<p>АктивЭнергоПром — пермская компания с более чем десятилетним опытом в сфере комплектации и снабжения промышленных объектов. Мы специализируемся на поставках для предприятий нефтегазовой отрасли.</p>
+<p>Наша команда обеспечивает полный цикл: от подбора продукции и проверки качества до логистики на объект. Работаем напрямую с производителями, что позволяет гарантировать конкурентные цены и сроки.</p>
+<div class="advantages">
+<div class="adv-item"><span class="adv-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Сертификация</div>
+<div class="adv-item"><span class="adv-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Прямые контракты</div>
+<div class="adv-item"><span class="adv-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Гарантия качества</div>
+<div class="adv-item"><span class="adv-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Логистика по РФ</div>
+</div>
+<div class="partners">
+<span class="partner-tag highlight">Газстройпром</span>
+<span class="partner-tag">Газпром</span>
+<span class="partner-tag">Роснефть</span>
+<span class="partner-tag">Лукойл</span>
+<span class="partner-tag">Новатэк</span>
+<span class="partner-tag">Транснефть</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACTS -->
+<section class="section contacts" id="contacts">
+<div class="container">
+<div class="contacts-header fade">
+<p class="eyebrow">Контакты</p>
+<h2 class="section-title">Свяжитесь с нами</h2>
+<p class="section-sub">Оставьте заявку — мы подберём оптимальное решение и рассчитаем стоимость в течение рабочего дня.</p>
+</div>
+<div class="contacts-grid">
+<div class="contact-items fade">
+<div class="contact-item">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</div>
+<div>
+<strong>Телефон</strong>
+<span>+7 (342) 000-00-00<br>+7 (900) 000-00-00</span>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+</div>
+<div>
+<strong>Email</strong>
+<span>info@aep-perm.ru</span>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+</div>
+<div>
+<strong>Адрес</strong>
+<span>г. Пермь, ул. Промышленная, д. 1</span>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+</div>
+<div>
+<strong>Режим работы</strong>
+<span>Пн — Пт: 9:00 — 18:00<br>Сб — Вс: выходной</span>
+</div>
+</div>
+</div>
+<form class="fade" id="contactForm" onsubmit="return false">
+<div class="form-row">
+<div class="form-group">
+<label for="name">Имя</label>
+<input type="text" id="name" placeholder="Иван Иванов" required>
+</div>
+<div class="form-group">
+<label for="phone">Телефон</label>
+<input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required>
+</div>
+</div>
+<div class="form-group">
+<label for="company">Компания</label>
+<input type="text" id="company" placeholder="Название вашей компании">
+</div>
+<div class="form-group">
+<label for="productSelect">Интересующая продукция</label>
+<select id="productSelect">
+<option value="" disabled selected>Выберите категорию</option>
+<option>Запорная арматура</option>
+<option>Метизы</option>
+<option>Кабельные эстакады</option>
+<option>Фасонина</option>
+<option>Тенты</option>
+<option>Комплексная поставка</option>
+</select>
+</div>
+<div class="form-group">
+<label for="message">Сообщение</label>
+<textarea id="message" placeholder="Опишите вашу потребность..."></textarea>
+</div>
+<button type="submit" class="submit-btn" id="submitBtn">Отправить заявку</button>
+</form>
+<iframe name="hiddenFrame" style="display:none"></iframe>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="nav-logo">
+<img src="https://media.base44.com/images/public/user_69c57e1eac7282013701a008/6cb67869e_ChatGPTImage25202611_29_20.png" alt="АктивЭнергоПром" width="40" height="40" style="border-radius:6px">
+<span style="font-family:var(--font-heading);font-size:0.95rem;font-weight:700">АктивЭнерго<span class="red">Пром</span></span>
+</div>
+<p>Надёжный поставщик промышленного оборудования для нефтегазовой отрасли. Комплексное снабжение объектов по всей России.</p>
+<div class="footer-socials">
+<a href="#" class="footer-social" aria-label="Telegram">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+</a>
+<a href="#" class="footer-social" aria-label="WhatsApp">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</a>
+<a href="#" class="footer-social" aria-label="VK">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+</a>
+</div>
+</div>
+<div class="footer-col">
+<h4>Продукция</h4>
+<a href="#products">Запорная арматура</a>
+<a href="#products">Метизы</a>
+<a href="#products">Кабельные эстакады</a>
+<a href="#products">Фасонина</a>
+<a href="#products">Тенты</a>
+</div>
+<div class="footer-col">
+<h4>Компания</h4>
+<a href="#about">О нас</a>
+<a href="#about">Партнёры</a>
+<a href="#delivery">Доставка</a>
+<a href="#contacts">Контакты</a>
+</div>
+<div class="footer-col">
+<h4>Связь</h4>
+<a href="tel:+73420000000">+7 (342) 000-00-00</a>
+<a href="tel:+79000000000">+7 (900) 000-00-00</a>
+<a href="mailto:info@aep-perm.ru">info@aep-perm.ru</a>
+<a href="#contacts">Оставить заявку</a>
+</div>
+</div>
+<div class="footer-bottom">
+<span>&copy; 2026 АктивЭнергоПром. Все права защищены.</span>
+<span>ИНН 0000000000 / ОГРН 0000000000000</span>
+</div>
+</div>
+</footer>
+
+<!-- VALVE BUTTON -->
+<div class="valve-wrap" id="valveWrap">
+<button class="valve-btn" id="valveBtn" aria-label="Наверх">
+<svg id="valveSvg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="32" cy="32" r="24"/>
+<circle cx="32" cy="32" r="16"/>
+<line x1="32" y1="8" x2="32" y2="16"/>
+<line x1="32" y1="48" x2="32" y2="56"/>
+<line x1="8" y1="32" x2="16" y2="32"/>
+<line x1="48" y1="32" x2="56" y2="32"/>
+<line x1="15" y1="15" x2="20.5" y2="20.5"/>
+<line x1="43.5" y1="43.5" x2="49" y2="49"/>
+<line x1="49" y1="15" x2="43.5" y2="20.5"/>
+<line x1="20.5" y1="43.5" x2="15" y2="49"/>
+<circle cx="32" cy="32" r="5"/>
+<line x1="32" y1="0" x2="32" y2="8"/>
+<line x1="26" y1="0" x2="38" y2="0" stroke-width="3"/>
+</svg>
+</button>
+<span class="valve-label">Вентиль</span>
+</div>
+
+<script>
+(function() {
+    var products = [
+        {
+            title: 'Запорная арматура',
+            desc: 'Задвижки, краны, вентили и обратные клапаны для нефтегазовых объектов. Сертифицированная продукция от ведущих производителей.',
+            img: 'product-armatura.png'
+        },
+        {
+            title: 'Метизы',
+            desc: 'Болты, гайки, шпильки, шайбы и крепёж промышленного класса. Высокопрочные стали, стойкие к агрессивным средам.',
+            img: 'product-metizy.png'
+        },
+        {
+            title: 'Кабельные эстакады',
+            desc: 'Металлоконструкции для прокладки кабельных трасс на промышленных площадках. Проектирование и комплектация.',
+            img: 'product-estakady.png'
+        },
+        {
+            title: 'Фасонина',
+            desc: 'Фасонные части трубопроводов: отводы, тройники, переходы, заглушки. Для систем водоснабжения и газоснабжения.',
+            img: 'product-fasonina.png'
+        },
+        {
+            title: 'Тенты',
+            desc: 'Промышленные укрытия и тенты для защиты оборудования и материалов на строительных площадках.',
+            img: 'product-tenty.png'
+        }
+    ];
+
+    var gridHtml = '';
+    for (var i = 0; i < products.length; i++) {
+        var p = products[i];
+        gridHtml += '<div class="product-card fade">' +
+            '<div class="product-img"><img src="' + p.img + '" alt="' + p.title + '" width="600" height="400" loading="lazy"></div>' +
+            '<div class="product-body">' +
+            '<h3>' + p.title + '</h3>' +
+            '<p>' + p.desc + '</p>' +
+            '<div class="product-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>' +
+            '</div></div>';
+    }
+    document.getElementById('productsGrid').innerHTML = gridHtml;
+
+    // INTERSECTION OBSERVER
+    var fades = document.querySelectorAll('.fade');
+    var observer = new IntersectionObserver(function(entries) {
+        for (var j = 0; j < entries.length; j++) {
+            if (entries[j].isIntersecting) {
+                entries[j].target.classList.add('in');
+                observer.unobserve(entries[j].target);
+            }
+        }
+    }, { threshold: 0.15 });
+    for (var k = 0; k < fades.length; k++) {
+        observer.observe(fades[k]);
+    }
+
+    // THEME TOGGLE
+    var html = document.documentElement;
+    var iconSun = document.getElementById('iconSun');
+    var iconMoon = document.getElementById('iconMoon');
+    var savedTheme = localStorage.getItem('aep-theme');
+    if (savedTheme) {
+        html.setAttribute('data-theme', savedTheme);
+    }
+    function updateIcons() {
+        var isDark = html.getAttribute('data-theme') === 'dark';
+        iconSun.style.display = isDark ? 'none' : 'block';
+        iconMoon.style.display = isDark ? 'block' : 'none';
+    }
+    updateIcons();
+    document.getElementById('themeToggle').addEventListener('click', function() {
+        var current = html.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('aep-theme', next);
+        updateIcons();
+    });
+
+    // SMOOTH SCROLL
+    var anchors = document.querySelectorAll('a[href^="#"]');
+    for (var a = 0; a < anchors.length; a++) {
+        anchors[a].addEventListener('click', function(e) {
+            var href = this.getAttribute('href');
+            if (href && href.length > 1) {
+                var target = document.getElementById(href.substring(1));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    }
+
+    // BURGER MENU
+    var burger = document.getElementById('burger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    burger.addEventListener('click', function() {
+        burger.classList.toggle('active');
+        mobileMenu.classList.toggle('open');
+    });
+    var mobileLinks = document.querySelectorAll('.mobile-link');
+    for (var m = 0; m < mobileLinks.length; m++) {
+        mobileLinks[m].addEventListener('click', function() {
+            burger.classList.remove('active');
+            mobileMenu.classList.remove('open');
+        });
+    }
+
+    // VALVE
+    var valveWrap = document.getElementById('valveWrap');
+    var valveSvg = document.getElementById('valveSvg');
+    var valveBtn = document.getElementById('valveBtn');
+    var valveSpin = 0;
+
+    valveBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // DELIVERY PARALLAX
+    var deliveryBg = document.getElementById('deliveryBg');
+    var deliverySection = document.getElementById('delivery');
+
+    window.addEventListener('scroll', function() {
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Valve visibility & rotation
+        if (scrollY > 400) {
+            valveWrap.classList.add('visible');
+        } else {
+            valveWrap.classList.remove('visible');
+        }
+        valveSpin = scrollY * 0.35;
+        valveSvg.style.transform = 'rotate(' + valveSpin + 'deg)';
+
+        // Delivery parallax
+        var rect = deliverySection.getBoundingClientRect();
+        var windowH = window.innerHeight;
+        if (rect.top < windowH && rect.bottom > 0) {
+            var progress = (windowH - rect.top) / (windowH + rect.height);
+            var offset = (progress - 0.5) * 60;
+            deliveryBg.style.transform = 'translateY(' + offset + 'px)';
+        }
+    });
+
+    // CONTACT FORM
+    var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhvkr45b8MCTCC7nWBw8kDLBkaxIZTKeHvGnIGMcKtr12IlBUFqh3YyNrrPBEPsMbrgw/exec';
+    var submitBtn = document.getElementById('submitBtn');
+    var contactForm = document.getElementById('contactForm');
+    submitBtn.addEventListener('click', function() {
+        var nameVal = document.getElementById('name').value.trim();
+        var phoneVal = document.getElementById('phone').value.trim();
+        if (!nameVal || !phoneVal) return;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Отправка...';
+        var params = '?name=' + encodeURIComponent(nameVal) +
+            '&phone=' + encodeURIComponent(phoneVal) +
+            '&company=' + encodeURIComponent(document.getElementById('company').value.trim()) +
+            '&product=' + encodeURIComponent(document.getElementById('productSelect').value || '') +
+            '&message=' + encodeURIComponent(document.getElementById('message').value.trim());
+        document.querySelector('[name="hiddenFrame"]').src = GOOGLE_SCRIPT_URL + params;
+        submitBtn.classList.add('success');
+        submitBtn.textContent = 'Заявка отправлена!';
+        contactForm.reset();
+        setTimeout(function() {
+            submitBtn.classList.remove('success');
+            submitBtn.textContent = 'Отправить заявку';
+            submitBtn.disabled = false;
+        }, 3500);
+    });
+})();
+</script>
+</body>
+</html>
