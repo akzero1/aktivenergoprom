@@ -211,8 +211,9 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .footer-bottom span{font-size:0.8rem;color:var(--text-muted)}
 
 /* VALVE BUTTON */
-.valve-wrap{position:fixed;bottom:5rem;right:1.5rem;z-index:999;display:flex;flex-direction:column;align-items:center;gap:0.35rem;opacity:0;pointer-events:none;transition:opacity 0.4s ease}
+.valve-wrap{position:fixed;bottom:5rem;right:1.5rem;z-index:999;display:flex;flex-direction:column;align-items:center;gap:0.35rem;opacity:0;pointer-events:none;transition:opacity 0.4s ease,transform 0.4s ease}
 .valve-wrap.visible{opacity:1;pointer-events:all}
+body.chat-active .valve-wrap{opacity:0 !important;pointer-events:none !important;transform:translateY(10px)}
 .valve-btn{width:56px;height:56px;border-radius:50%;background:var(--bg-card);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--transition);box-shadow:0 4px 20px hsla(0,72%,51%,0.2)}
 .valve-btn:hover{background:var(--accent)}
 .valve-btn:hover svg{stroke:#fff}
@@ -870,13 +871,21 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   widget.appendChild(btn);
   var closeBtn = document.getElementById('chatClose');
 
+  function syncState(){
+    var active = panel.classList.contains('show') || greeting.classList.contains('show');
+    document.body.classList.toggle('chat-active', active);
+  }
+
   var greetingShown = false;
   var greetingDismissed = false;
   function showGreeting(){
     if(greetingShown || greetingDismissed || panel.classList.contains('show')) return;
     greeting.classList.add('show');
     greetingShown = true;
-    setTimeout(function(){ if(!panel.classList.contains('show')) greeting.classList.remove('show'); }, 12000);
+    syncState();
+    setTimeout(function(){
+      if(!panel.classList.contains('show')){ greeting.classList.remove('show'); syncState(); }
+    }, 12000);
   }
   setTimeout(showGreeting, 6000);
 
@@ -884,16 +893,19 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
     e.stopPropagation();
     greeting.classList.remove('show');
     greetingDismissed = true;
+    syncState();
   });
 
   function openPanel(){
     panel.classList.add('show');
     greeting.classList.remove('show');
     btn.style.transform = 'scale(0.92)';
+    syncState();
   }
   function closePanel(){
     panel.classList.remove('show');
     btn.style.transform = '';
+    syncState();
   }
   btn.addEventListener('click', function(){
     if(panel.classList.contains('show')) closePanel(); else openPanel();
